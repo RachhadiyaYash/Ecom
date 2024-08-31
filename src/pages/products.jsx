@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router"; // Import useRouter for query parameters
+import { useRouter } from "next/router";
 import ProductCard from "../components/ProductCard";
 import Filter from "../components/Filter";
 import PriceFilter from "../components/PriceFilter";
@@ -10,7 +10,7 @@ export default function Products() {
   const [category, setCategory] = useState("");
   const [priceRange, setPriceRange] = useState({ minPrice: 0, maxPrice: 1000 });
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const router = useRouter(); // Initialize useRouter
+  const router = useRouter();
 
   useEffect(() => {
     async function loadProducts() {
@@ -21,7 +21,6 @@ export default function Products() {
   }, []);
 
   useEffect(() => {
-    // Extract category from query parameters
     const categoryFromQuery = router.query.category;
     if (categoryFromQuery) {
       setCategory(decodeURIComponent(categoryFromQuery));
@@ -92,13 +91,16 @@ export default function Products() {
             <br />
           </div>
 
-          <div className="w-full md:w-3/4 p-4">
-            <div className="md:hidden border-2 border-red-900 sticky top-20 z-20">
-              <button
-                onClick={() => setIsFilterOpen(true)}
-                className="bg-blue-500 text-white p-2 rounded w-full"
-              >
-                Open Filters
+          <div className="w-full md:w-3/4  md:m-3 p-3 ">
+            <div className="md:hidden flex justify-between items-center   sticky top-[75px] z-20 bg-white p-2">
+              <span className="text-lg font-semibold">Filters</span>
+              <button onClick={() => setIsFilterOpen(true)} className="">
+                <img
+                  src="/filter-tool-svgrepo-com.svg"
+                  alt=""
+                  height={20}
+                  width={20}
+                />
               </button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -110,11 +112,9 @@ export default function Products() {
         </div>
       </div>
 
-      {/* Filter Modal for Smaller Screens */}
       {isFilterOpen && (
         <div className="fixed inset-0 z-30 modal-background bg-black bg-opacity-50 flex justify-center items-center">
           <div className="relative bg-white w-11/12 max-w-lg p-6 rounded-lg">
-            {/* Close Icon */}
             <button
               onClick={() => setIsFilterOpen(false)}
               className="absolute top-2 right-2 p-1 text-gray-600 hover:text-gray-800"

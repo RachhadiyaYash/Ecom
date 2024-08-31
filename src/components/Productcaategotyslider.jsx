@@ -1,13 +1,15 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { fetchProducts } from "../utils/api";
-import { useRouter } from "next/router"; // Import useRouter for navigation
+import { useRouter } from "next/router";
 
 const Productcategoryslidder = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const router = useRouter(); // Initialize useRouter
+  const router = useRouter();
 
   useEffect(() => {
     fetchProducts()
@@ -29,7 +31,6 @@ const Productcategoryslidder = () => {
   }, []);
 
   const handleCategoryClick = (category) => {
-    // Redirect to product page with category as query parameter
     router.push(`/products?category=${encodeURIComponent(category)}`);
   };
 
@@ -63,24 +64,22 @@ const Productcategoryslidder = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex items-center mb-4">
-        <h2 className="text-lg font-semibold pl-4 flex-grow">
-          Product Categories
-        </h2>
+        <h2 className="text-xl font-bold pl-4 flex-grow">Product Categories</h2>
       </div>
       <Slider {...settings}>
         {categories.map(([category, image], index) => (
           <div
             key={index}
-            className="px-4 text-left border-green-900 cursor-pointer"
-            onClick={() => handleCategoryClick(category)} // Add click handler
+            className="px-4 text-center border-green-900 cursor-pointer"
+            onClick={() => handleCategoryClick(category)}
           >
-            <div className="bg-white rounded shadow-lg border-2 px-4 text-center">
+            <div className="bg-white rounded-xl shadow-lg border-2 p-4 text-center">
               <img
                 src={image}
                 alt={category}
                 className="h-[290px] p-4 w-full object-fit rounded-md transform transition-transform duration-300 hover:scale-110 z-10"
               />
-              <h3 className="text-left">{category}</h3>
+              <h3 className="text-center font-semibold texl-lg">{category}</h3>
             </div>
           </div>
         ))}
