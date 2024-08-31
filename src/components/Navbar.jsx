@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useCart } from "../context/CartContext";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router"; // Import useRouter
 
 const Navbar = () => {
   const { cartItems } = useCart();
@@ -17,6 +18,15 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const handleLinkClick = (href) => {
+    // Close the menu
+    setIsMenuOpen(false);
+    // Redirect to the specified page
+    router.push(href);
+  };
+
+  const router = useRouter(); // Initialize useRouter
 
   return (
     <div className="bg-blue-300 top-0 sticky z-50">
@@ -165,58 +175,37 @@ const Navbar = () => {
             </div>
             <ul>
               <li className="mb-1">
-                <Link
-                  href="/"
-                  className="text-lg block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                <a
+                  onClick={() => handleLinkClick("/")}
+                  className="text-lg block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded cursor-pointer"
                 >
                   Home
-                </Link>
+                </a>
               </li>
               <li className="mb-1">
-                <Link
-                  href="/aboutus"
-                  className="text-lg block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                <a
+                  onClick={() => handleLinkClick("/aboutus")}
+                  className="text-lg block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded cursor-pointer"
                 >
                   About
-                </Link>
+                </a>
               </li>
               <li className="mb-1">
-                <Link
-                  href="/products"
-                  className="text-lg block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                <a
+                  onClick={() => handleLinkClick("/products")}
+                  className="text-lg block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded cursor-pointer"
                 >
                   Products
-                </Link>
+                </a>
               </li>
               <li className="mb-1">
-                <Link
-                  href="/Contact"
-                  className="text-lg block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
+                <a
+                  onClick={() => handleLinkClick("/contact")}
+                  className="text-lg block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded cursor-pointer"
                 >
                   Contact
-                </Link>
+                </a>
               </li>
-              {/* <li className="relative mb-1">
-                <Link
-                  href="/cart"
-                  className="relative inline-block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                >
-                  <div className="relative inline-block">
-                    <Image
-                      src="/cart-icon.svg"
-                      alt="Empty shopping cart"
-                      width={30}
-                      height={30}
-                      className="relative"
-                    />
-                    {totalItems > 0 && (
-                      <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 border-2 border-white bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-                        {totalItems}
-                      </span>
-                    )}
-                  </div>
-                </Link>
-              </li> */}
             </ul>
             <div className="mt-auto">
               <a
