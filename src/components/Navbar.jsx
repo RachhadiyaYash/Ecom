@@ -209,16 +209,13 @@ const Navbar = () => {
             </ul>
             <div className="mt-auto">
               <a
-                className="block w-full py-2 px-4 text-center text-sm font-bold text-gray-900 bg-gray-50 hover:bg-gray-100 rounded-xl transition duration-200"
-                href="#"
+                className="block py-2 px-2 text-center text-xs font-bold rounded-xl"
+                href="https://rachhadiyayash.github.io/Portfolio/"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Sign In
-              </a>
-              <a
-                className="block w-full py-2 px-4 text-center text-sm font-bold text-white bg-blue-500 hover:bg-blue-600 rounded-xl transition duration-200 mt-2"
-                href="#"
-              >
-                Sign Up
+                Crafted with 💕 By <br />
+                Yash Raachhadiya
               </a>
             </div>
           </nav>
