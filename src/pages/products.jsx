@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router"; // Import useRouter for query parameters
 import ProductCard from "../components/ProductCard";
 import Filter from "../components/Filter";
 import PriceFilter from "../components/PriceFilter";
@@ -9,6 +10,7 @@ export default function Products() {
   const [category, setCategory] = useState("");
   const [priceRange, setPriceRange] = useState({ minPrice: 0, maxPrice: 1000 });
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const router = useRouter(); // Initialize useRouter
 
   useEffect(() => {
     async function loadProducts() {
@@ -17,6 +19,14 @@ export default function Products() {
     }
     loadProducts();
   }, []);
+
+  useEffect(() => {
+    // Extract category from query parameters
+    const categoryFromQuery = router.query.category;
+    if (categoryFromQuery) {
+      setCategory(decodeURIComponent(categoryFromQuery));
+    }
+  }, [router.query.category]);
 
   const filteredProducts = products.filter((product) => {
     const withinCategory = category ? product.category === category : true;
