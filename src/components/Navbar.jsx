@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-blue-300 top-0 sticky z-50">
-      <nav className=" container mx-auto relative px-4 py-4 flex justify-between items-center bg-blue-300 sticky top-0">
+      <nav className="container mx-auto relative px-4 py-4 flex justify-between items-center bg-blue-300 sticky top-0">
         <Link href="/" className="text-3xl font-bold leading-none">
           <Image
             src="/logoipsum-285.svg"
@@ -30,7 +30,20 @@ const Navbar = () => {
           />
         </Link>
 
-        <div className="lg:hidden">
+        <div className="lg:hidden flex items-center space-x-4">
+          <Link href="/cart" className="text-lg relative">
+            <Image
+              src="/cart-icon.svg"
+              alt="Empty shopping cart"
+              width={24}
+              height={24}
+            />
+            {totalItems > 0 && (
+              <span className="absolute text-xs -top-2 -right-2 bg-red-500 text-white  font-bold px-2 py-1 rounded-full">
+                {totalItems}
+              </span>
+            )}
+          </Link>
           <button
             className="navbar-burger flex items-center text-blue-600 p-3"
             onClick={toggleMenu}
@@ -40,14 +53,14 @@ const Navbar = () => {
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title>Mobile menu</title>
               <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
             </svg>
           </button>
         </div>
+
         <ul className="hidden lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
           <li>
-            <Link href="/" className=" font-bold">
+            <Link href="/" className="font-bold">
               Home
             </Link>
           </li>
@@ -115,7 +128,8 @@ const Navbar = () => {
             </Link>
           </li>
         </ul>
-        <div className="hidden lg:flex lg:ml-auto lg:space-x-5 mx-3 ">
+
+        <div className="hidden lg:flex lg:ml-auto lg:space-x-5 mx-3">
           <Link href="/cart" className="text-lg relative">
             <Image
               src="/cart-icon.svg"
@@ -131,6 +145,7 @@ const Navbar = () => {
           </Link>
         </div>
       </nav>
+
       {isMenuOpen && (
         <div className="navbar-menu relative z-50 lg:hidden">
           <div
@@ -181,7 +196,7 @@ const Navbar = () => {
                   Contact
                 </Link>
               </li>
-              <li className="relative mb-1">
+              {/* <li className="relative mb-1">
                 <Link
                   href="/cart"
                   className="relative inline-block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
@@ -201,7 +216,7 @@ const Navbar = () => {
                     )}
                   </div>
                 </Link>
-              </li>
+              </li> */}
             </ul>
             <div className="mt-auto">
               <a

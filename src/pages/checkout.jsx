@@ -59,8 +59,8 @@ const Checkout = () => {
       <h1 className="text-3xl font-bold mb-6">Checkout</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* Name */}
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-2">
-          <div className="w-full">
+        <div className="grid md:grid-cols-2  gap-4 md:grid-cols-2">
+          <div>
             <label className="block text-md font-bold mb-1">Name</label>
             <Controller
               name="name"
