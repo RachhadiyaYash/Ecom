@@ -6,9 +6,7 @@ export default function Home() {
   return (
     <>
       {/* <Herosection /> */}
-
-      <Productcategoryslidder />
-
+      {/* <Productcategoryslidder /> */}
       {/* <Button /> */}
     </>
   );
