@@ -29,8 +29,8 @@ const Navbar = () => {
   const router = useRouter(); // Initialize useRouter
 
   return (
-    <div className="bg-primary top-0 sticky z-50   mx-auto">
-      <nav className="container mx-auto relative px-4 py-4 flex justify-between items-center bg-[#0D9488]sticky top-0">
+    <div className="bg-primary top-0 sticky z-50   ">
+      <nav className="container mx-auto relative px-4 py-4 flex justify-between items-center sticky top-0">
         <Link href="/" className="text-3xl font-bold leading-none">
           <Image src="/logoipsum-259.svg" alt="logo" width={200} height={200} />
         </Link>
