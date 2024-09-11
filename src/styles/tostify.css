@@ -1,0 +1,13 @@
+/* toastify.css */
+.Toastify__toast--success {
+    background: #0D9488;
+    color: #0D9488;
+}
+
+.Toastify__toast-body {
+    color: #0D9488;
+}
+
+.Toastify__progress-bar {
+    background: #0D9488;
+}

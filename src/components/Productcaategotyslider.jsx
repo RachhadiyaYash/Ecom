@@ -36,8 +36,10 @@ const Productcategoryslidder = () => {
 
   const settings = {
     dots: false,
+
+    arrows: false, // Disable side arrows
     infinite: true,
-    speed: 500,
+
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
@@ -68,34 +70,32 @@ const Productcategoryslidder = () => {
   if (error) return <p>Error loading categories: {error.message}</p>;
 
   return (
-    <div className="container mx-auto">
-      <div className=" px-4 py-8">
-        <div className="flex items-center mb-4">
-          <h2 className="text-xl font-bold pl-4 flex-grow">
-            Product Categories
-          </h2>
-        </div>
-        <Slider {...settings}>
-          {categories.map(([category, image], index) => (
-            <div
-              key={index}
-              className="px-2 sm:px-4 text-center cursor-pointer"
-              onClick={() => handleCategoryClick(category)}
-            >
-              <div className="bg-white rounded-xl shadow-lg border-2 p-4 text-center">
-                <img
-                  src={image}
-                  alt={category}
-                  className="h-40 sm:h-48 md:h-56 w-full object-cover rounded-md transform transition-transform duration-300 hover:scale-110"
-                />
-                <h3 className="text-center font-semibold text-lg mt-2">
-                  {category}
-                </h3>
-              </div>
-            </div>
-          ))}
-        </Slider>
+    <div className=" md:max-w-7xl container  mx-auto  px-4 py-8">
+      <div className="flex items-center mb-4">
+        <h2 className=" flex-grow  text-2xl my-2 uppercase text-primary font-semibold mb-4">
+          Product Categories
+        </h2>
       </div>
+      <Slider {...settings}>
+        {categories.map(([category, image], index) => (
+          <div
+            key={index}
+            className=" sm:px-4 text-center cursor-pointer"
+            onClick={() => handleCategoryClick(category)}
+          >
+            <div className="bg-white rounded-xl shadow-lg border-2 p-4 text-center">
+              <img
+                src={image}
+                alt={category}
+                className="h-40 sm:h-48 md:h-56 w-full object-cover rounded-md transform transition-transform duration-300 hover:scale-110"
+              />
+              <h3 className="text-center font-semibold text-lg mt-2">
+                {category}
+              </h3>
+            </div>
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import { CartProvider } from "../context/CartContext";
 import Navbar from "../components/Navbar";
 import "../styles/globals.css";
+import "../styles/ContactUs.css";
+import "../styles/tostify.css";
 
 import Footer from "@/components/Footer";
 import "slick-carousel/slick/slick.css";

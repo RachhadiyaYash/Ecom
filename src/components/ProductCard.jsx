@@ -21,34 +21,36 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <div className="border border-gray-200  p-4 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-200">
+    <div className="border border-primary p-4 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-200">
       <div className="relative overflow-hidden">
         <img
           src={product.image}
           alt={product.title}
-          className="h-[290px] p-4 w-full object-fit rounded-md transform transition-transform duration-300 hover:scale-110 z-10"
+          className="h-[200px] p-4 w-full object-fit rounded-md transform transition-transform duration-300 hover:scale-110 z-10"
         />
       </div>
       <hr />
-      <h2 className="mt-3 text-lg font-semibold text-gray-800 h-[60px] line-clamp-2">
+      <h2 className="mt-3 text-lg font-bold text-black h-[60px] line-clamp-2">
         {product.title}
       </h2>
-      <div className="flex flex-row items-center justify-between my-2">
-        <p className="mt-1 text-gray-600">${product.price.toFixed(2)}</p>
-        <p className="text-gray-500 text-sm">{product.category}</p>
+      <div className="flex flex-row items-center justify-between my-2 ">
+        <p className="text-gray-500 text-sm  font-semibold uppercase">
+          {product.category}
+        </p>
+        <p className=" text-primary font-bold">${product.price.toFixed(2)}</p>
       </div>
-      <p className="my-4 text-gray-700 h-[65px] text-sm line-clamp-3">
+      {/* <p className="my-4 text-gray-700 h-[65px] text-sm line-clamp-3">
         {product.description}
-      </p>
+      </p> */}
 
       <div className="flex h-[33px] items-center justify-between mt-2">
         <div className="items-center">
-          <span className="text-yellow-500 text-lg">
+          {/* <span className="text-yellow-500 text-lg">
             ⭐ {product.rating.rate}
-          </span>
-          <span className="text-gray-600 ml-2 text-sm">
+          </span> */}
+          {/* <span className="text-gray-600 ml-2 text-sm">
             ({product.rating.count} reviews)
-          </span>
+          </span> */}
         </div>
         <div className="flex justify-between items-center">
           {cartProduct ? (

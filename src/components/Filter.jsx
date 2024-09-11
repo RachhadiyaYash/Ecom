@@ -1,6 +1,6 @@
 export default function Filter({ categories, setCategory }) {
   return (
-    <div className="space-y-4 p-4 border rounded-lg shadow-md bg-white">
+    <div className="space-y-4 p-4  ">
       <h2 className="text-lg font-bold mb-3">Filter by Category </h2>
       {categories.map((category, index) => (
         <label key={index} className="flex items-center space-x-2">

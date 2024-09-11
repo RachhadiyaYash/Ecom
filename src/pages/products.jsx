@@ -71,9 +71,9 @@ export default function Products() {
 
   return (
     <>
-      <div className="container mx-auto">
+      <div className="container md:max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row">
-          <div className="hidden md:block w-full md:w-1/4 p-4 border-2 sticky top-[80px] z-20 h-[480px] mt-4 rounded-md">
+          <div className="hidden md:block w-full md:w-1/4 p-4  border border-primary sticky top-[80px] z-20 h-[480px] mt-6 rounded-md">
             <Filter
               categories={[
                 "electronics",

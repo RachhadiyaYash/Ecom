@@ -13,7 +13,7 @@ const PriceFilter = ({ onFilter }) => {
   };
 
   return (
-    <div className="p-4 border rounded-lg shadow-md bg-white">
+    <div className="p-4  ">
       <h2 className="text-lg font-bold mb-3">Filter by Price</h2>
       <div className="mb-4">
         <label className="block mb-1 text-sm font-medium">Price Range:</label>
@@ -34,7 +34,7 @@ const PriceFilter = ({ onFilter }) => {
               style={{
                 background: getTrackBackground({
                   values,
-                  colors: ["#ccc", "#007bff", "#ccc"],
+                  colors: ["#CCCC", "#0D9488", "#CCCC"],
                   min: 7,
                   max: 1000,
                 }),
@@ -46,7 +46,7 @@ const PriceFilter = ({ onFilter }) => {
           renderThumb={({ props }) => (
             <div
               {...props}
-              className="w-4 h-4 bg-blue-500 rounded-full shadow"
+              className="w-4 h-4 bg-[#0D9488] rounded-full shadow"
             />
           )}
         />

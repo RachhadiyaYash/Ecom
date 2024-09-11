@@ -132,7 +132,7 @@ const Navbar = () => {
             </svg>
           </li>
           <li>
-            <Link href="/products" className="font-bold">
+            <Link href="/contactus" className="font-bold">
               Contact Us
             </Link>
           </li>
@@ -212,7 +212,7 @@ const Navbar = () => {
               </li>
               <li className="mb-1">
                 <a
-                  onClick={() => handleLinkClick("/contact")}
+                  onClick={() => handleLinkClick("/contactus")}
                   className="text-lg block p-4 text-sm font-bold text-primary hover:text-blue-600 rounded cursor-pointer"
                 >
                   Contact
