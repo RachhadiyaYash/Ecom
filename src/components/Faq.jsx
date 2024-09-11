@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  BsFillQuestionCircleFill,
-  BsFillShieldFill,
-  BsFillGearFill,
+  BsFillQuestionCircleFill, // General
+  BsFillShieldFill, // Support
+  BsFillBoxSeamFill, // Order Issues
 } from "react-icons/bs";
 
 const FAQ = () => {
@@ -26,84 +26,68 @@ const FAQ = () => {
       icon: <BsFillShieldFill className="text-xl" />,
     },
     {
-      name: "Others",
-      key: "others",
-      icon: <BsFillGearFill className="text-xl" />,
+      name: "Order Issues",
+      key: "order-issues",
+      icon: <BsFillBoxSeamFill className="text-xl" />,
     },
   ];
 
   const faqItems = {
     general: [
       {
-        question: "Can I cancel at anytime?",
+        question: "Can I change my shipping address after placing an order?",
         answer:
-          "Yes, you can cancel anytime no questions are asked while you cancel but we would highly appreciate if you will give us some feedback.",
+          "Yes, you can change your shipping address within 24 hours of placing the order. Contact our support team to update your address.",
       },
       {
-        question: "How does Preline's pricing work?",
+        question: "How can I track my order?",
         answer:
-          "Our subscriptions are tiered. Understanding the task at hand and ironing out the wrinkles is key.",
+          "You can track your order by logging into your account and visiting the 'Order History' section.",
       },
       {
-        question: "How secure is Preline?",
-        answer:
-          "Protecting the data you trust to Preline is our first priority. This part is really crucial in keeping the project in line to completion.",
-      },
-      {
-        question: "How can I reset my password?",
-        answer:
-          "To reset your password, click on 'Forgot password' on the login page, enter your email address, and follow the instructions sent to your email.",
+        question: "What payment methods are accepted?",
+        answer: "We accept major credit cards, PayPal, and bank transfers.",
       },
     ],
     support: [
       {
-        question: "How secure is Preline?",
+        question: "I received a damaged item, what should I do?",
         answer:
-          "Protecting the data you trust to Preline is our first priority. This part is really crucial in keeping the project in line to completion.",
+          "If you receive a damaged item, please contact our support team with a photo of the damage, and we will arrange for a replacement or refund.",
       },
       {
-        question: "How can I reset my password?",
+        question: "How do I return an item?",
         answer:
-          "To reset your password, click on 'Forgot password' on the login page, enter your email address, and follow the instructions sent to your email.",
+          "To return an item, please fill out the return form available in your account and send the item back to us using the provided return label.",
       },
       {
-        question: "How secure is Preline?",
+        question: "Can I cancel my subscription?",
         answer:
-          "Protecting the data you trust to Preline is our first priority. This part is really crucial in keeping the project in line to completion.",
-      },
-      {
-        question: "How can I reset my password?",
-        answer:
-          "To reset your password, click on 'Forgot password' on the login page, enter your email address, and follow the instructions sent to your email.",
-      },
-      {
-        question: "How secure is Preline?",
-        answer:
-          "Protecting the data you trust to Preline is our first priority. This part is really crucial in keeping the project in line to completion.",
-      },
-      {
-        question: "How can I reset my password?",
-        answer:
-          "To reset your password, click on 'Forgot password' on the login page, enter your email address, and follow the instructions sent to your email.",
+          "Yes, you can cancel your subscription anytime through your account settings or by contacting our support team.",
       },
     ],
-    others: [
+    "order-issues": [
       {
-        question: "How do I get access to a theme I purchased?",
+        question: "What should I do if I didn’t receive my order?",
         answer:
-          "If you lose the link for a theme you purchased, don't panic! You can login to your account, tap your avatar in the upper right corner, and tap Purchases.",
+          "If you haven’t received your order within the expected delivery time, please contact our support team for assistance.",
       },
       {
-        question: "Upgrade License Type",
+        question: "My order status is ‘pending,’ what does that mean?",
         answer:
-          "There may be times when you need to upgrade your license from the original type you purchased and we have a solution that ensures you can apply your original purchase cost to the new license purchase.",
+          "A ‘pending’ status means that your order is being processed and will be updated once it has been shipped.",
+      },
+      {
+        question: "I was charged incorrectly, how can I get a refund?",
+        answer:
+          "If you believe you were charged incorrectly, please contact our support team with your order details, and we will investigate and process a refund if necessary.",
       },
     ],
   };
 
   return (
-    <div className="max-w-6xl mx-auto py-8 px-4">
-      <div className="pl-8">
+    <div className="max-w-6xl border-2 mx-auto py-8 px-4">
+      <div className="md:pl-8 ">
         <h1 className="text-2xl my-2 uppercase text-primary font-semibold mb-4">
           How to get started
         </h1>
@@ -112,10 +96,9 @@ const FAQ = () => {
         </h2>
       </div>
 
-      {/* Large screens layout */}
-      <div className="hidden md:flex mx-auto">
+      <div className="hidden md:flex mx-auto mt-12">
         {/* Left Sidebar */}
-        <div className="flex-shrink-0 w-1/4 border-r border-primary p-4 pr-12 space-y-4">
+        <div className="flex-shrink-0  border-r border-primary  pl-4 pr-12 space-y-4 ">
           {faqCategories.map((category) => (
             <div
               key={category.key}
@@ -131,12 +114,12 @@ const FAQ = () => {
         </div>
 
         {/* Right Content */}
-        <div className="flex-1 p-4 pl-12">
+        <div className="flex-1 p-4  pl-12  ">
           <AnimatePresence>
             {faqItems[activeCategory].map((item, index) => (
               <motion.div
                 key={index}
-                className="accordion py-4 border-b border-gray-200"
+                className="accordion py-4 pt-2 border-b border-gray-200"
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
@@ -182,13 +165,13 @@ const FAQ = () => {
       </div>
 
       <div className="md:hidden">
-        <div className="flex flex-wrap items-center justify-center p-2 space-x-2 space-y-2">
+        <div className="flex  overflow-x-auto  justify-center space-x-2 space-y-2">
           {faqCategories.map((category) => (
             <div
               key={category.key}
-              className={`cursor-pointer py-2 text-sm  font-semibold px-2 flex items-center space-x-1  ${
+              className={`cursor-pointer py-2 text-sm font-semibold px-2 flex items-center space-x-1 ${
                 activeCategory === category.key
-                  ? "border-b  text-primary border-primary"
+                  ? "border-b text-primary border-primary"
                   : ""
               }`}
               onClick={() => setActiveCategory(category.key)}
@@ -199,7 +182,7 @@ const FAQ = () => {
           ))}
         </div>
 
-        <div className="p-4">
+        <div className="p-4 pl-0">
           <AnimatePresence>
             {faqItems[activeCategory].map((item, index) => (
               <motion.div
