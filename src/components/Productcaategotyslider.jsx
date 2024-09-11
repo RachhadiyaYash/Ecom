@@ -52,6 +52,12 @@ const Productcategoryslidder = () => {
       {
         breakpoint: 768,
         settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
           slidesToShow: 1,
         },
       },
@@ -62,28 +68,34 @@ const Productcategoryslidder = () => {
   if (error) return <p>Error loading categories: {error.message}</p>;
 
   return (
-    <div className="border-2 border-red-400">
-      <div className="flex items-center mb-4">
-        <h2 className="text-xl font-bold pl-4 flex-grow">Product Categories</h2>
-      </div>
-      <Slider {...settings}>
-        {categories.map(([category, image], index) => (
-          <div
-            key={index}
-            className="px-4 text-center border-green-900 cursor-pointer"
-            onClick={() => handleCategoryClick(category)}
-          >
-            <div className="bg-white rounded-xl shadow-lg border-2 p-4 text-center">
-              <img
-                src={image}
-                alt={category}
-                className="h-[290px] p-4 w-full object-fit rounded-md transform transition-transform duration-300 hover:scale-110 z-10"
-              />
-              <h3 className="text-center font-semibold texl-lg">{category}</h3>
+    <div className="container mx-auto">
+      <div className=" px-4 py-8">
+        <div className="flex items-center mb-4">
+          <h2 className="text-xl font-bold pl-4 flex-grow">
+            Product Categories
+          </h2>
+        </div>
+        <Slider {...settings}>
+          {categories.map(([category, image], index) => (
+            <div
+              key={index}
+              className="px-2 sm:px-4 text-center cursor-pointer"
+              onClick={() => handleCategoryClick(category)}
+            >
+              <div className="bg-white rounded-xl shadow-lg border-2 p-4 text-center">
+                <img
+                  src={image}
+                  alt={category}
+                  className="h-40 sm:h-48 md:h-56 w-full object-cover rounded-md transform transition-transform duration-300 hover:scale-110"
+                />
+                <h3 className="text-center font-semibold text-lg mt-2">
+                  {category}
+                </h3>
+              </div>
             </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
+      </div>
     </div>
   );
 };
