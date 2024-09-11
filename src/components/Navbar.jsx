@@ -29,25 +29,24 @@ const Navbar = () => {
   const router = useRouter(); // Initialize useRouter
 
   return (
-    <div className="bg-blue-300 top-0 sticky z-50">
-      <nav className="container mx-auto relative px-4 py-4 flex justify-between items-center bg-blue-300 sticky top-0">
+    <div className="bg-primary top-0 sticky z-50   mx-auto">
+      <nav className="container mx-auto relative px-4 py-4 flex justify-between items-center bg-[#0D9488]sticky top-0">
         <Link href="/" className="text-3xl font-bold leading-none">
-          <Image
-            src="/logoipsum-285.svg"
-            alt="Empty shopping cart"
-            width={200}
-            height={200}
-          />
+          <Image src="/logoipsum-259.svg" alt="logo" width={200} height={200} />
         </Link>
 
-        <div className="lg:hidden flex items-center space-x-4">
+        <div className="lg:hidden flex items-center space-x-2 ">
           <Link href="/cart" className="text-lg relative">
-            <Image
-              src="/cart-icon.svg"
-              alt="Empty shopping cart"
-              width={24}
-              height={24}
-            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="white"
+              class="bi bi-cart"
+              viewBox="0 0 16 16"
+            >
+              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+            </svg>
             {totalItems > 0 && (
               <span className="absolute text-xs -top-2 -right-2 bg-red-500 text-white  font-bold px-2 py-1 rounded-full">
                 {totalItems}
@@ -59,7 +58,7 @@ const Navbar = () => {
             onClick={toggleMenu}
           >
             <svg
-              className="block h-4 w-4 fill-current"
+              className="block h-4 w-4 fill-white"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -68,7 +67,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        <ul className="hidden lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+        <ul className="hidden lg:flex text-white lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
           <li>
             <Link href="/" className="font-bold">
               Home
@@ -141,14 +140,27 @@ const Navbar = () => {
 
         <div className="hidden lg:flex lg:ml-auto lg:space-x-5 mx-3">
           <Link href="/cart" className="text-lg relative">
-            <Image
+            {/* <Image
               src="/cart-icon.svg"
+              className="text-white"
+              fill="white"
               alt="Empty shopping cart"
               width={30}
               height={30}
-            />
+              
+            /> */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              fill="white"
+              class="bi bi-cart"
+              viewBox="0 0 16 16"
+            >
+              <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+            </svg>
             {totalItems > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+              <span className="absolute -top-2 -right-2 bg-[#F97316] text-white text-xs font-bold px-2 py-1 rounded-full">
                 {totalItems}
               </span>
             )}
@@ -157,7 +169,7 @@ const Navbar = () => {
       </nav>
 
       {isMenuOpen && (
-        <div className="navbar-menu relative z-50 lg:hidden">
+        <div className="navbar-menu relative  z-50 lg:hidden">
           <div
             className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"
             onClick={toggleMenu}
@@ -166,8 +178,8 @@ const Navbar = () => {
             <div className="flex items-center mb-8">
               <Link href="/" className="text-3xl font-bold leading-none">
                 <Image
-                  src="/logoipsum-285.svg"
-                  alt="Empty shopping cart"
+                  src="/logoipsum-259.svg"
+                  alt="logo"
                   width={200}
                   height={200}
                 />
@@ -177,7 +189,7 @@ const Navbar = () => {
               <li className="mb-1">
                 <a
                   onClick={() => handleLinkClick("/")}
-                  className="text-lg block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded cursor-pointer"
+                  className="text-lg block p-4 text-sm font-bold text-primary hover:text-blue-600 rounded cursor-pointer"
                 >
                   Home
                 </a>
@@ -185,7 +197,7 @@ const Navbar = () => {
               <li className="mb-1">
                 <a
                   onClick={() => handleLinkClick("/aboutus")}
-                  className="text-lg block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded cursor-pointer"
+                  className="text-lg block p-4 text-sm font-bold text-primary hover:text-blue-600 rounded cursor-pointer"
                 >
                   About
                 </a>
@@ -193,7 +205,7 @@ const Navbar = () => {
               <li className="mb-1">
                 <a
                   onClick={() => handleLinkClick("/products")}
-                  className="text-lg block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded cursor-pointer"
+                  className="text-lg block p-4 text-sm font-bold text-primary hover:text-blue-600 rounded cursor-pointer"
                 >
                   Products
                 </a>
@@ -201,7 +213,7 @@ const Navbar = () => {
               <li className="mb-1">
                 <a
                   onClick={() => handleLinkClick("/contact")}
-                  className="text-lg block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded cursor-pointer"
+                  className="text-lg block p-4 text-sm font-bold text-primary hover:text-blue-600 rounded cursor-pointer"
                 >
                   Contact
                 </a>

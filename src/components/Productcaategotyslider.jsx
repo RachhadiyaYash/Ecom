@@ -62,7 +62,7 @@ const Productcategoryslidder = () => {
   if (error) return <p>Error loading categories: {error.message}</p>;
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container  mx-auto px-4 py-8">
       <div className="flex items-center mb-4">
         <h2 className="text-xl font-bold pl-4 flex-grow">Product Categories</h2>
       </div>

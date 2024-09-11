@@ -10,8 +10,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <CartProvider>
       <Navbar />
-
       <Component {...pageProps} />
+      <Footer />
     </CartProvider>
   );
 }
