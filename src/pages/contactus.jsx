@@ -262,6 +262,16 @@ export default function ContactUs() {
                     <input
                       type="radio"
                       name="subject"
+                      value="Order"
+                      checked={formik.values.subject === "Order"}
+                      onChange={formik.handleChange}
+                    />
+                    <span className="checkmark"></span> Order Related Inquiry
+                  </label>
+                  <label className="custom-radio">
+                    <input
+                      type="radio"
+                      name="subject"
                       value="general"
                       checked={formik.values.subject === "general"}
                       onChange={formik.handleChange}

@@ -9,8 +9,6 @@ export default function Home() {
       <Productcategoryslidder />
 
       <FAQ />
-
-      <Button text="Send Message" />
     </>
   );
 }
