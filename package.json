@@ -23,7 +23,7 @@
     "react-toastify": "^10.0.5",
     "slick-carousel": "^1.8.1",
     "stripe": "^16.9.0",
-    "swiper": "^11.1.11",
+    "swiper": "^11.1.12",
     "tostify": "^0.0.1",
     "yup": "^1.4.0"
   },
