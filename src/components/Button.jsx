@@ -47,7 +47,7 @@ export default function Button({ text, width = "w-[250px]" }) {
         </motion.div>
 
         <motion.p
-          className="text-primary font-bold  ml-12 whitespace-nowrap"
+          className="text-primary font-bold py-2 ml-12 whitespace-nowrap"
           initial={{ opacity: 1, x: 0 }}
           animate={{
             opacity: isHovered ? 1 : 1,
