@@ -6,10 +6,11 @@ import Productcategoryslidder from "@/components/Productcaategotyslider";
 export default function Home() {
   return (
     <>
-      {/* <Herosection /> */}
       <Productcategoryslidder />
-      {/* <Button /> */}
+
       <FAQ />
+
+      <Button text="Send Message" />
     </>
   );
 }

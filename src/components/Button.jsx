@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-export default function Button() {
+export default function Button({ text, width = "w-[250px]" }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
-      className="relative flex justify-center items-center  mx-auto w-[290px] gap-x-14 group"
+      className={`relative flex justify-center  items-center mx-auto ${width} gap-x-6 group cursor-pointer`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <motion.button
-        className="relative flex items-center"
+        className="relative flex items-center justify-between "
         initial={{ scale: 1 }}
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.3 }}
       >
+        {/* Circle and Arrow Container */}
         <motion.div
-          className={`w-12 h-14 rounded-full border-2 border-[#0000FF] flex justify-center items-center ${
-            isHovered ? "rounded-none border-transparent" : ""
+          className={`w-12 h-14 rounded-full border-2 border-primary flex justify-center items-center ${
+            isHovered ? "border-transparent" : ""
           }`}
           animate={{
             width: isHovered ? "100%" : "3.5rem",
@@ -26,15 +27,16 @@ export default function Button() {
           }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
         >
+          {/* Arrow */}
           <motion.svg
             xmlns="http://www.w3.org/2000/svg"
             width="34"
             height="34"
-            fill="#0000FF"
+            fill="#0D9488"
             className="absolute"
             viewBox="0 0 16 16"
             initial={{ x: 0 }}
-            animate={{ x: isHovered ? "120%" : "100%" }} // Adjust to move the arrow outside
+            animate={{ x: isHovered ? "120%" : "100%" }} // Move arrow when hovered
             transition={{ duration: 0.3 }}
           >
             <path
@@ -43,15 +45,19 @@ export default function Button() {
             />
           </motion.svg>
         </motion.div>
+
+        <motion.p
+          className="text-primary font-bold  ml-12 whitespace-nowrap"
+          initial={{ opacity: 1, x: 0 }}
+          animate={{
+            opacity: isHovered ? 1 : 1,
+            x: isHovered ? 10 : 0,
+          }}
+          transition={{ duration: 0.3 }}
+        >
+          {text}
+        </motion.p>
       </motion.button>
-      <motion.p
-        className="text-[#0000FF] font-bold"
-        initial={{ opacity: 1 }}
-        whileHover={{ opacity: 0.8 }}
-        transition={{ duration: 0.3 }}
-      >
-        Click here to login
-      </motion.p>
     </div>
   );
 }

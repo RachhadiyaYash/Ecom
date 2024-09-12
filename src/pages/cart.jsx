@@ -29,15 +29,14 @@ export default function Cart() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6">Your Cart</h1>
       {cartItems.length === 0 ? (
-        <div className="flex flex-col items-center justify-center min-h-screen">
+        <div className="flex flex-col items-center justify-center ">
           <Image
-            src="/empty_cart.svg"
+            src="/undraw_empty_cart_co35.svg"
             alt="Empty shopping cart"
-            width={600}
-            height={600}
-            className="mb-4"
+            width={500}
+            height={500}
+            className="mb-4 aspect-square"
           />
           <p className="text-3xl font-bold mb-6 text-center">
             Your Cart Is Empty

@@ -3,6 +3,9 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Image from "next/image";
+import Link from "next/link";
+import Button from "@/components/Button";
 
 export default function ContactUs() {
   const formik = useFormik({
@@ -32,9 +35,9 @@ export default function ContactUs() {
       message: Yup.string().required("Message is required"),
     }),
     onSubmit: (values, { resetForm }) => {
-      console.log(values); // Log the submitted form data
+      console.log(values);
       toast.success("Message sent successfully!");
-      resetForm(); // Clear the form fields after submission
+      resetForm();
     },
   });
 
@@ -56,48 +59,38 @@ export default function ContactUs() {
               </p>
               <p className="text-white">Say something to start a live chat!</p>
             </div>
-            <div className="mt-14 space-y-4">
+            <div className="mt-14  pb-12 space-y-4">
               <div className="flex items-center gap-3 py-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="white"
-                  className="bi bi-telephone-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"
+                <Link href="/">
+                  <Image
+                    src="/call-chat-svgrepo-com.svg"
+                    alt="call"
+                    width={26}
+                    height={26}
                   />
-                </svg>
+                </Link>
                 <p className="text-white">+1012 3456 789</p>
               </div>
               <div className="flex items-center gap-3 py-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="white"
-                  class="bi bi-envelope-at-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2zm-2 9.8V4.698l5.803 3.546zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.5 4.5 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586zM16 9.671V4.697l-5.803 3.546.338.208A4.5 4.5 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671" />
-                  <path d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791" />
-                </svg>
+                <Link href="/">
+                  <Image
+                    src="/email-svgrepo-com.svg"
+                    alt="email"
+                    width={26}
+                    height={26}
+                  />
+                </Link>
                 <p className="text-white">demo@gmail.com</p>
               </div>
               <div className="flex items-start gap-3 py-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="white"
-                  className="bi bi-geo-alt-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-                </svg>
+                <Link href="/">
+                  <Image
+                    src="/maps-svgrepo-com.svg"
+                    alt="adress"
+                    width={26}
+                    height={26}
+                  />
+                </Link>
                 <p className="text-white">
                   132 Dartmouth Street Boston,
                   <br />
@@ -106,42 +99,30 @@ export default function ContactUs() {
               </div>
             </div>
             <div className="flex flex-row gap-6 p-4 pl-0  mt-auto">
-              <a href="#" aria-label="Compass">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="currentColor"
-                  className="bi bi-compass-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M15.5 8.516a7.5 7.5 0 1 1-9.462-7.24A1 1 0 0 1 7 0h2a1 1 0 0 1 .962 1.276 7.5 7.5 0 0 1 5.538 7.24m-3.61-3.905L6.94 7.439 4.11 12.39l4.95-2.828 2.828-4.95z" />
-                </svg>
-              </a>
-              <a href="#" aria-label="Compass">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="currentColor"
-                  className="bi bi-compass-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M15.5 8.516a7.5 7.5 0 1 1-9.462-7.24A1 1 0 0 1 7 0h2a1 1 0 0 1 .962 1.276 7.5 7.5 0 0 1 5.538 7.24m-3.61-3.905L6.94 7.439 4.11 12.39l4.95-2.828 2.828-4.95z" />
-                </svg>
-              </a>
-              <a href="#" aria-label="Compass">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="currentColor"
-                  className="bi bi-compass-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M15.5 8.516a7.5 7.5 0 1 1-9.462-7.24A1 1 0 0 1 7 0h2a1 1 0 0 1 .962 1.276 7.5 7.5 0 0 1 5.538 7.24m-3.61-3.905L6.94 7.439 4.11 12.39l4.95-2.828 2.828-4.95z" />
-                </svg>
-              </a>
+              <Link href="/">
+                <Image
+                  src="/discord-svgrepo-com.svg"
+                  alt="discord"
+                  width={32}
+                  height={32}
+                />
+              </Link>
+              <Link href="/">
+                <Image
+                  src="/insta-svgrepo-com.svg"
+                  alt="insta"
+                  width={32}
+                  height={32}
+                />
+              </Link>
+              <Link href="/">
+                <Image
+                  src="/twitter-svgrepo-com.svg"
+                  alt="twitter"
+                  width={32}
+                  height={32}
+                />
+              </Link>
             </div>
             <img
               src="/Ellipse 794.svg"
@@ -157,7 +138,7 @@ export default function ContactUs() {
                   <input
                     type="text"
                     name="firstName"
-                    className={`block py-2.5 pl-2  w-full text-md bg-transparent  border-b-2 border-primary focus:outline-none focus:ring-0  ${
+                    className={`block pt-4 pb-2   w-full text-md bg-transparent  border-b-2 border-primary focus:outline-none focus:ring-0  ${
                       formik.errors.firstName && formik.touched.firstName
                         ? "border-red-600"
                         : ""
@@ -167,7 +148,7 @@ export default function ContactUs() {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
-                  <label className="absolute text-lg font-bold transform -translate-y-6  scale-75 top-3 -z-10 ">
+                  <label className="absolute text-lg font-bold transform -translate-y-6  scale-75 top-3 -z-10 -ml-3">
                     First Name
                   </label>
                   {formik.errors.firstName && formik.touched.firstName ? (
@@ -181,8 +162,8 @@ export default function ContactUs() {
                   <input
                     type="text"
                     name="lastName"
-                    className={`block py-2.5 pl-2  w-full text-md bg-transparent  border-b-2 border-primary  appearance-none focus:outline-none focus:ring-0  ${
-                      formik.errors.lastName && formik.touched.lastName
+                    className={`block pt-4 pb-2   w-full text-md bg-transparent  border-b-2 border-primary focus:outline-none focus:ring-0  ${
+                      formik.errors.firstName && formik.touched.firstName
                         ? "border-red-600"
                         : ""
                     }`}
@@ -191,7 +172,7 @@ export default function ContactUs() {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
-                  <label className="absolute text-lg font-bold transform -translate-y-6 scale-75 top-3 -z-10 ">
+                  <label className="absolute text-lg font-bold transform -translate-y-6  scale-75 top-3 -z-10 -ml-3">
                     Last Name
                   </label>
                   {formik.errors.lastName && formik.touched.lastName ? (
@@ -207,8 +188,8 @@ export default function ContactUs() {
                   <input
                     type="text"
                     name="email"
-                    className={`block py-2.5 pl-2  w-full text-md bg-transparent  border-b-2 border-primary  appearance-none focus:outline-none focus:ring-0  ${
-                      formik.errors.email && formik.touched.email
+                    className={`block pt-4 pb-2   w-full text-md bg-transparent  border-b-2 border-primary focus:outline-none focus:ring-0  ${
+                      formik.errors.firstName && formik.touched.firstName
                         ? "border-red-600"
                         : ""
                     }`}
@@ -217,7 +198,7 @@ export default function ContactUs() {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
-                  <label className="absolute text-lg font-bold transform -translate-y-6 scale-75 top-3 -z-10 ">
+                  <label className="absolute text-lg font-bold transform -translate-y-6  scale-75 top-3 -z-10 -ml-2">
                     Email
                   </label>
                   {formik.errors.email && formik.touched.email ? (
@@ -231,8 +212,8 @@ export default function ContactUs() {
                   <input
                     type="tel"
                     name="phone"
-                    className={`block py-2.5 pl-2  w-full text-md bg-transparent  border-b-2 border-primary  appearance-none focus:outline-none focus:ring-0  ${
-                      formik.errors.phone && formik.touched.phone
+                    className={`block pt-4 pb-2   w-full text-md bg-transparent  border-b-2 border-primary focus:outline-none focus:ring-0  ${
+                      formik.errors.firstName && formik.touched.firstName
                         ? "border-red-600"
                         : ""
                     }`}
@@ -241,7 +222,7 @@ export default function ContactUs() {
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                   />
-                  <label className="absolute text-lg font-bold transform -translate-y-6 scale-75 top-3 -z-10 ">
+                  <label className="absolute text-lg font-bold transform -translate-y-6  scale-75 top-3 -z-10 -ml-2">
                     Phone
                   </label>
                   {formik.errors.phone && formik.touched.phone ? (
@@ -255,8 +236,8 @@ export default function ContactUs() {
                 <textarea
                   name="message"
                   rows="1"
-                  className={`block py-2.5 pl-2  w-full text-md bg-transparent  border-b-2 border-primary  appearance-none focus:outline-none focus:ring-0  ${
-                    formik.errors.message && formik.touched.message
+                  className={`block pt-4 pb-2   w-full text-md bg-transparent  border-b-2 border-primary focus:outline-none focus:ring-0  ${
+                    formik.errors.firstName && formik.touched.firstName
                       ? "border-red-600"
                       : ""
                   }`}
@@ -265,7 +246,7 @@ export default function ContactUs() {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                 ></textarea>
-                <label className="absolute text-lg font-bold transform -translate-y-6 scale-75 top-3 -z-10 ">
+                <label className="absolute text-lg font-bold transform -translate-y-6  scale-75 top-3 -z-10 -ml-3">
                   Message
                 </label>
                 {formik.errors.message && formik.touched.message ? (
@@ -316,13 +297,11 @@ export default function ContactUs() {
               </div>
 
               <br />
-              <div className=" flex flex-col items-end  justify-end space-y-4">
-                <button
-                  type="submit"
-                  className="bg-primary text-white py-3 px-6 rounded"
-                >
-                  Send Message
-                </button>
+
+              <div className="flex md:justify-end justify-center  ">
+                <div className=" w-auto ">
+                  <Button text="Send Message" type="submit" />
+                </div>
               </div>
             </form>
           </div>

@@ -87,7 +87,7 @@ const Productcategoryslidder = () => {
               <img
                 src={image}
                 alt={category}
-                className="h-40 sm:h-48 md:h-56 w-full object-cover rounded-md transform transition-transform duration-300 hover:scale-110"
+                className="max-h-[200px] w-full object-fit rounded-md transform transition-transform duration-300 hover:scale-110"
               />
               <h3 className="text-center font-semibold text-lg mt-2">
                 {category}
