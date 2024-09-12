@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  BsFillQuestionCircleFill, // General
-  BsFillShieldFill, // Support
-  BsFillBoxSeamFill, // Order Issues
+  BsFillQuestionCircleFill,
+  BsFillShieldFill,
+  BsFillBoxSeamFill,
 } from "react-icons/bs";
+import faqData from "@/utils/faq.json";
 
 const FAQ = () => {
   const [activeCategory, setActiveCategory] = useState("general");
@@ -14,75 +15,10 @@ const FAQ = () => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
-  const faqCategories = [
-    {
-      name: "General",
-      key: "general",
-      icon: <BsFillQuestionCircleFill className="text-xl" />,
-    },
-    {
-      name: "Support",
-      key: "support",
-      icon: <BsFillShieldFill className="text-xl" />,
-    },
-    {
-      name: "Order Issues",
-      key: "order-issues",
-      icon: <BsFillBoxSeamFill className="text-xl" />,
-    },
-  ];
-
-  const faqItems = {
-    general: [
-      {
-        question: "Can I change my shipping address after placing an order?",
-        answer:
-          "Yes, you can change your shipping address within 24 hours of placing the order. Contact our support team to update your address.",
-      },
-      {
-        question: "How can I track my order?",
-        answer:
-          "You can track your order by logging into your account and visiting the 'Order History' section.",
-      },
-      {
-        question: "What payment methods are accepted?",
-        answer: "We accept major credit cards, PayPal, and bank transfers.",
-      },
-    ],
-    support: [
-      {
-        question: "I received a damaged item, what should I do?",
-        answer:
-          "If you receive a damaged item, please contact our support team with a photo of the damage, and we will arrange for a replacement or refund.",
-      },
-      {
-        question: "How do I return an item?",
-        answer:
-          "To return an item, please fill out the return form available in your account and send the item back to us using the provided return label.",
-      },
-      {
-        question: "Can I cancel my subscription?",
-        answer:
-          "Yes, you can cancel your subscription anytime through your account settings or by contacting our support team.",
-      },
-    ],
-    "order-issues": [
-      {
-        question: "What should I do if I didn’t receive my order?",
-        answer:
-          "If you haven’t received your order within the expected delivery time, please contact our support team for assistance.",
-      },
-      {
-        question: "My order status is ‘pending,’ what does that mean?",
-        answer:
-          "A ‘pending’ status means that your order is being processed and will be updated once it has been shipped.",
-      },
-      {
-        question: "I was charged incorrectly, how can I get a refund?",
-        answer:
-          "If you believe you were charged incorrectly, please contact our support team with your order details, and we will investigate and process a refund if necessary.",
-      },
-    ],
+  const icons = {
+    BsFillQuestionCircleFill: <BsFillQuestionCircleFill className="text-xl" />,
+    BsFillShieldFill: <BsFillShieldFill className="text-xl" />,
+    BsFillBoxSeamFill: <BsFillBoxSeamFill className="text-xl" />,
   };
 
   return (
@@ -97,9 +33,8 @@ const FAQ = () => {
       </div>
 
       <div className="hidden md:flex mx-auto mt-12">
-        {/* Left Sidebar */}
-        <div className="flex-shrink-0  border-r border-primary  pl-4 pr-12 space-y-4 ">
-          {faqCategories.map((category) => (
+        <div className="flex-shrink-0 border-r border-primary pl-4 pr-12 space-y-4 ">
+          {faqData.categories.map((category) => (
             <div
               key={category.key}
               className={`cursor-pointer py-2 text-xl font-semibold px-4 flex items-center space-x-2 rounded ${
@@ -107,16 +42,14 @@ const FAQ = () => {
               }`}
               onClick={() => setActiveCategory(category.key)}
             >
-              <span>{category.icon}</span>
+              <span>{icons[category.icon]}</span>
               <span>{category.name}</span>
             </div>
           ))}
         </div>
-
-        {/* Right Content */}
-        <div className="flex-1 p-4  pl-12  ">
+        <div className="flex-1 p-4 pl-12 ">
           <AnimatePresence>
-            {faqItems[activeCategory].map((item, index) => (
+            {faqData.items[activeCategory].map((item, index) => (
               <motion.div
                 key={index}
                 className="accordion py-4 pt-2 border-b border-gray-200"
@@ -164,9 +97,10 @@ const FAQ = () => {
         </div>
       </div>
 
+      {/* Mobile View */}
       <div className="md:hidden">
-        <div className="flex  overflow-x-auto  justify-center space-x-2 space-y-2">
-          {faqCategories.map((category) => (
+        <div className="flex overflow-x-auto justify-center space-x-2 space-y-2">
+          {faqData.categories.map((category) => (
             <div
               key={category.key}
               className={`cursor-pointer py-2 text-sm font-semibold px-2 flex items-center space-x-1 ${
@@ -176,7 +110,7 @@ const FAQ = () => {
               }`}
               onClick={() => setActiveCategory(category.key)}
             >
-              <span>{category.icon}</span>
+              <span>{icons[category.icon]}</span>
               <span>{category.name}</span>
             </div>
           ))}
@@ -184,7 +118,7 @@ const FAQ = () => {
 
         <div className="p-4 pl-0">
           <AnimatePresence>
-            {faqItems[activeCategory].map((item, index) => (
+            {faqData.items[activeCategory].map((item, index) => (
               <motion.div
                 key={index}
                 className="accordion py-4 border-b border-gray-200"

@@ -178,7 +178,7 @@ const Navbar = () => {
             <div className="flex items-center mb-8">
               <Link href="/" className="text-3xl font-bold leading-none">
                 <Image
-                  src="/logoipsum-259.svg"
+                  src="/logoipsum-297.svg"
                   alt="logo"
                   width={200}
                   height={200}

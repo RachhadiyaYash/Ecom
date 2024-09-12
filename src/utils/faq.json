@@ -1,0 +1,63 @@
+{
+  "categories": [
+    {
+      "name": "General",
+      "key": "general",
+      "icon": "BsFillQuestionCircleFill"
+    },
+    {
+      "name": "Support",
+      "key": "support",
+      "icon": "BsFillShieldFill"
+    },
+    {
+      "name": "Order Issues",
+      "key": "order-issues",
+      "icon": "BsFillBoxSeamFill"
+    }
+  ],
+  "items": {
+    "general": [
+      {
+        "question": "Can I change my shipping address after placing an order?",
+        "answer": "Yes, you can change your shipping address within 24 hours of placing the order. Contact our support team to update your address."
+      },
+      {
+        "question": "How can I track my order?",
+        "answer": "You can track your order by logging into your account and visiting the 'Order History' section."
+      },
+      {
+        "question": "What payment methods are accepted?",
+        "answer": "We accept major credit cards, PayPal, and bank transfers."
+      }
+    ],
+    "support": [
+      {
+        "question": "I received a damaged item, what should I do?",
+        "answer": "If you receive a damaged item, please contact our support team with a photo of the damage, and we will arrange for a replacement or refund."
+      },
+      {
+        "question": "How do I return an item?",
+        "answer": "To return an item, please fill out the return form available in your account and send the item back to us using the provided return label."
+      },
+      {
+        "question": "Can I cancel my subscription?",
+        "answer": "Yes, you can cancel your subscription anytime through your account settings or by contacting our support team."
+      }
+    ],
+    "order-issues": [
+      {
+        "question": "What should I do if I didn’t receive my order?",
+        "answer": "If you haven’t received your order within the expected delivery time, please contact our support team for assistance."
+      },
+      {
+        "question": "My order status is ‘pending,’ what does that mean?",
+        "answer": "A ‘pending’ status means that your order is being processed and will be updated once it has been shipped."
+      },
+      {
+        "question": "I was charged incorrectly, how can I get a refund?",
+        "answer": "If you believe you were charged incorrectly, please contact our support team with your order details, and we will investigate and process a refund if necessary."
+      }
+    ]
+  }
+}
