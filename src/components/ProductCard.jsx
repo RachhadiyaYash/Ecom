@@ -21,7 +21,7 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <div className="border border-primary p-4 w-auto rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-200">
+    <div className="border border-primary p-4 w-[300px] md:w-auto rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-200 ">
       <div className="relative overflow-hidden">
         <img
           src={product.image}

@@ -37,7 +37,7 @@ const RelatedProductsSlider = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2000,
     responsive: [
       {
         breakpoint: 1024,
@@ -55,8 +55,8 @@ const RelatedProductsSlider = () => {
   };
 
   return (
-    <div className="md:py-24 py-12">
-      <h2 className="text-2xl my-8 uppercase text-primary font-semibold mb-4">
+    <div className="py-24">
+      <h2 className="text-2xl my-6 uppercase text-primary font-semibold mb-4">
         People Also Buy Together
       </h2>
       {relatedProducts.length > 0 ? (
@@ -69,9 +69,11 @@ const RelatedProductsSlider = () => {
             {relatedProducts.map((product) => (
               <div
                 key={product.id}
-                className="p-2 bg-white rounded-lg shadow-sm"
+                className="flex items-center justify-center p-2  rounded-lg shadow-sm"
               >
-                <ProductCard product={product} />
+                <div className=" flex items-center justify-center">
+                  <ProductCard product={product} />
+                </div>
               </div>
             ))}
           </Slider>
