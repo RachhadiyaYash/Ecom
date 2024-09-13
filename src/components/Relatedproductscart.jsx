@@ -35,6 +35,7 @@ const RelatedProductsSlider = () => {
     infinite: true,
     speed: 1000,
     slidesToShow: 4,
+    arrows: false, // Disable side arrows
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
@@ -69,7 +70,7 @@ const RelatedProductsSlider = () => {
             {relatedProducts.map((product) => (
               <div
                 key={product.id}
-                className="flex items-center justify-center p-2  rounded-lg shadow-sm"
+                className="flex items-center justify-center p-4  rounded-lg "
               >
                 <div className=" flex items-center justify-center">
                   <ProductCard product={product} />
