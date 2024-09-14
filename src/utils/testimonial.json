@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Jane D",
     "position": "CEO",
-    "avatar": "https://pagedone.io/asset/uploads/1696229969.png",
+    "avatar": "/avatar-svgrepo-com.svg",
     "feedback": "The user interface of this pagedone is so intuitive, I was able to start using it without any guidance.",
     "rating": 4
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "name": "John S",
     "position": "CTO",
-    "avatar": "https://example.com/john.png",
+    "avatar": "/avatar-svgrepo-com (1).svg",
     "feedback": "Pagedone has greatly improved our workflow with its intuitive design.",
     "rating": 5
   },
@@ -19,8 +19,41 @@
     "id": 3,
     "name": "Johyashhhn S",
     "position": "CTO",
-    "avatar": "https://example.com/john.png",
+    "avatar": "/avatar-svgrepo-com (2).svg",
     "feedback": "Pagedone has greatly improved  adasdfour workflow with its intuitive design.",
+    "rating": 5
+  },
+  {
+    "id": 4,
+    "name": "Jane D",
+    "position": "CEO",
+    "avatar": "/avatar-svgrepo-com (3).svg",
+    "feedback": "The user interface of this pagedone is so intuitive, I was able to start using it without any guidance.",
+    "rating": 4.5
+  },
+
+  {
+    "id": 6,
+    "name": "Johyashhhn S",
+    "position": "CTO",
+    "avatar": "/avatar-svgrepo-com (6).svg",
+    "feedback": "Pagedone has greatly improved  adasdfour workflow with its intuitive design.",
+    "rating": 3.5
+  },
+  {
+    "id": 7,
+    "name": "Mary P",
+    "position": "Designer",
+    "avatar": "/avatar-svgrepo-com (5).svg",
+    "feedback": "As a designer, the interface is visually appealing and easy to navigate.",
+    "rating": 4
+  },
+  {
+    "id": 5,
+    "name": "John S",
+    "position": "CTO",
+    "avatar": "/avatar-svgrepo-com (4).svg",
+    "feedback": "Pagedone has greatly improved our workflow with its intuitive design.",
     "rating": 5
   }
 ]

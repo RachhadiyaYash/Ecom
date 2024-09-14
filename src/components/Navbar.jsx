@@ -20,13 +20,11 @@ const Navbar = () => {
   };
 
   const handleLinkClick = (href) => {
-    // Close the menu
     setIsMenuOpen(false);
-    // Redirect to the specified page
     router.push(href);
   };
 
-  const router = useRouter(); // Initialize useRouter
+  const router = useRouter();
 
   return (
     <div className="bg-primary top-0 sticky z-50   ">
@@ -140,15 +138,6 @@ const Navbar = () => {
 
         <div className="hidden lg:flex lg:ml-auto lg:space-x-5 mx-3">
           <Link href="/cart" className="text-lg relative">
-            {/* <Image
-              src="/cart-icon.svg"
-              className="text-white"
-              fill="white"
-              alt="Empty shopping cart"
-              width={30}
-              height={30}
-              
-            /> */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"

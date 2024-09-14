@@ -55,34 +55,28 @@ const RelatedProductsSlider = () => {
     ],
   };
 
+  // Only render the component if related products exist
+  if (relatedProducts.length === 0) {
+    return null; // This will hide the entire section
+  }
+
   return (
     <div className="py-24">
       <h2 className="text-2xl my-6 uppercase text-primary font-semibold mb-4">
         People Also Buy Together
       </h2>
-      {relatedProducts.length > 0 ? (
-        relatedProducts.length === 1 ? (
-          <div className="p-4 rounded-lg shadow-sm mx-auto w-[290px]">
-            <ProductCard product={relatedProducts[0]} />
-          </div>
-        ) : (
-          <Slider {...sliderSettings}>
-            {relatedProducts.map((product) => (
-              <div
-                key={product.id}
-                className="flex items-center justify-center p-4  rounded-lg "
-              >
-                <div className=" flex items-center justify-center">
-                  <ProductCard product={product} />
-                </div>
-              </div>
-            ))}
-          </Slider>
-        )
+      {relatedProducts.length === 1 ? (
+        <div className="p-4 rounded-lg shadow-sm mx-auto w-[290px]">
+          <ProductCard product={relatedProducts[0]} />
+        </div>
       ) : (
-        <p className="text-center text-gray-500">
-          No related products available.
-        </p>
+        <Slider {...sliderSettings}>
+          {relatedProducts.map((product) => (
+            <div key={product.id} className="p-4">
+              <ProductCard product={product} />
+            </div>
+          ))}
+        </Slider>
       )}
     </div>
   );

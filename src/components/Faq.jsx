@@ -22,7 +22,7 @@ const FAQ = () => {
   };
 
   return (
-    <div className="md:max-w-7xl  container mx-auto py-8 px-4">
+    <div className="md:max-w-7xl  container mx-auto py-8 px-4" id="faq">
       <div className=" ">
         <h1 className="text-2xl my-2 uppercase text-primary font-semibold mb-4">
           How to get started

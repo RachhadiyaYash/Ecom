@@ -7,8 +7,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#0D9488', // Custom teal background color
-        whiteText: '#FFFFFF', // Custom white text color
+        primary: {
+          DEFAULT: '#0D9488',
+          50: '#E0F2F1',
+          100: '#B2DFDB',
+          200: '#80CBC4',
+          300: '#4DB6AC',
+          400: '#26A69A',
+          500: '#0D9488',
+          600: '#0C857B',
+          700: '#0A6F68',
+          800: '#085A55',
+          900: '#064540',
+        },
+        whiteText: '#FFFFFF',
       },
     },
   },

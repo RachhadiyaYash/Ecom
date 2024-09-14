@@ -21,18 +21,16 @@ export default function ContactUs() {
     validationSchema: Yup.object({
       firstName: Yup.string()
         .matches(/^[A-Za-z]+$/, "First name must contain only letters")
-        .required("First name is required"),
+        .required("Required"),
       lastName: Yup.string()
         .matches(/^[A-Za-z]+$/, "Last name must contain only letters")
-        .required("Last name is required"),
-      email: Yup.string()
-        .email("Invalid email address")
-        .required("Email is required"),
+        .required("Required"),
+      email: Yup.string().email("Invalid email address").required("Required"),
       phone: Yup.string()
         .matches(/^\d{10}$/, "Phone number must be exactly 10 digits")
-        .required("Phone number is required"),
+        .required("Required"),
       subject: Yup.string().required("Please select a subject"),
-      message: Yup.string().required("Message is required"),
+      message: Yup.string().required("Required"),
     }),
     onSubmit: (values, { resetForm }) => {
       console.log(values);
@@ -99,7 +97,10 @@ export default function ContactUs() {
               </div>
             </div>
             <div className="flex flex-row gap-6 p-4 pl-0  mt-auto">
-              <Link href="/">
+              <Link
+                href="https://rachhadiyayash.github.io/Portfolio/"
+                target="_blank"
+              >
                 <Image
                   src="/discord-svgrepo-com.svg"
                   alt="discord"
@@ -107,7 +108,10 @@ export default function ContactUs() {
                   height={32}
                 />
               </Link>
-              <Link href="/">
+              <Link
+                href="https://rachhadiyayash.github.io/Portfolio/"
+                target="_blank"
+              >
                 <Image
                   src="/insta-svgrepo-com.svg"
                   alt="insta"
@@ -115,7 +119,10 @@ export default function ContactUs() {
                   height={32}
                 />
               </Link>
-              <Link href="/">
+              <Link
+                href="https://rachhadiyayash.github.io/Portfolio/"
+                target="_blank"
+              >
                 <Image
                   src="/twitter-svgrepo-com.svg"
                   alt="twitter"
