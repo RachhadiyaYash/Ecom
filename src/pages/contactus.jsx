@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/Button";
+import Head from "next/head";
 
 export default function ContactUs() {
   const formik = useFormik({
@@ -41,6 +42,10 @@ export default function ContactUs() {
 
   return (
     <>
+      <Head>
+        <title>Contact | eCommerce</title>
+        <link rel="icon" href="favicon.svg" type="image/x-icon" />
+      </Head>
       <ToastContainer />
       <div className="container md:max-w-7xl mx-auto  px-4 pt-12 pb-24 ">
         <p className="text-center text-4xl font-bold mt-8 mb-2 text-primary">

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import ProductCard from "../components/ProductCard";
 import Filter from "../components/Filter";
+import Head from "next/head";
 import PriceFilter from "../components/PriceFilter";
 import { fetchProducts } from "../utils/api";
 
@@ -35,12 +36,6 @@ export default function Products() {
     return withinCategory && withinPriceRange;
   });
 
-  const clearFilters = () => {
-    setCategory("");
-    setPriceRange({ minPrice: 0, maxPrice: 1000 });
-    resetPriceFilter();
-  };
-
   const resetPriceFilter = () => {};
 
   const handleClickOutside = (event) => {
@@ -71,6 +66,10 @@ export default function Products() {
 
   return (
     <>
+      <Head>
+        <title>Products | eCommerce</title>
+        <link rel="icon" href="favicon.svg" type="image/x-icon" />
+      </Head>
       <div className="container md:max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row">
           <div className="hidden md:block w-full md:w-1/4 p-4  border border-primary sticky top-[80px] z-20 h-[480px] mt-6 rounded-md">

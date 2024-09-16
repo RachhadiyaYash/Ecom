@@ -3,6 +3,7 @@ import { useCart } from "../context/CartContext";
 import CartItem from "../components/CartItem";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Head from "next/head";
 import Link from "next/link";
 import RelatedProductscart from "@/components/Relatedproductscart";
 
@@ -21,6 +22,10 @@ export default function Cart() {
 
   return (
     <>
+      <Head>
+        <title>Cart | eCommerce</title>
+        <link rel="icon" href="favicon.svg" type="image/x-icon" />
+      </Head>
       <div className="container md:max-w-7xl mx-auto p-4">
         {cartItems.length === 0 ? (
           <div className="flex flex-col items-center justify-center">

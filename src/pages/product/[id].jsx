@@ -16,7 +16,7 @@ export default function ProductDetail() {
       async function loadProduct() {
         const productData = await fetchProductById(id);
         setProduct(productData);
-        setSelectedImage(productData.image); // Set default selected image
+        setSelectedImage(productData.image);
       }
       loadProduct();
     }
