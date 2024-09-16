@@ -89,7 +89,25 @@ const Checkout = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    const userChoice = confirm(
+      "Do you want to be redirected to the payment success page?"
+    );
+
+    const orderSummary = {
+      subtotal: subtotal.toFixed(2),
+      shippingEstimate: shippingEstimate.toFixed(2),
+      taxEstimate: taxEstimate.toFixed(2),
+      total: total.toFixed(2),
+    };
+
+    if (userChoice) {
+      router.push({
+        pathname: "/paymentsuccessful",
+        query: { ...data, ...orderSummary },
+      });
+    } else {
+      router.push("/paymentfailed");
+    }
   };
 
   if (cartItems.length === 0) {
@@ -291,14 +309,11 @@ const Checkout = () => {
                       <div>
                         <Select
                           {...field}
-                          value={selectedState} // Set selected state value
+                          value={selectedState}
                           options={states}
-                          onChange={(selectedOption) => {
-                            field.onChange(selectedOption);
-                            handleStateChange(selectedOption);
-                          }}
                           placeholder="State"
-                          className="basic-single border-2 rounded-md border-gray-300"
+                          onChange={handleStateChange}
+                          className="w-full"
                         />
                         {errors.state && (
                           <p className="text-red-500 text-sm mt-1">
@@ -316,14 +331,11 @@ const Checkout = () => {
                       <div>
                         <Select
                           {...field}
-                          value={selectedDistrict} // Set selected district value
+                          value={selectedDistrict}
                           options={districts}
-                          onChange={(selectedOption) => {
-                            field.onChange(selectedOption);
-                            handleDistrictChange(selectedOption);
-                          }}
                           placeholder="District"
-                          className="basic-single border-2 rounded-md border-gray-300"
+                          onChange={handleDistrictChange}
+                          className="w-full"
                         />
                         {errors.district && (
                           <p className="text-red-500 text-sm mt-1">
@@ -355,12 +367,13 @@ const Checkout = () => {
                   />
                 </div>
               </div>
-              <div className="mt-12">
+
+              <div className="mt-8 flex justify-end">
                 <button
                   type="submit"
-                  className="w-full py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary-dark focus:outline-none focus:ring-4 focus:ring-primary/20 transition"
+                  className="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-md"
                 >
-                  Complete Purchase
+                  Place Order
                 </button>
               </div>
             </form>
