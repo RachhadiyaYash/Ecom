@@ -36,18 +36,12 @@ const schema = yup.object().shape({
 });
 
 const Checkout = () => {
-  const { cartItems } = useCart();
+  const { cartItems, clearCart } = useCart();
   const [states, setStates] = useState([]);
   const [districts, setDistricts] = useState([]);
   const [selectedState, setSelectedState] = useState(null);
   const [selectedDistrict, setSelectedDistrict] = useState(null);
   const router = useRouter();
-
-  useEffect(() => {
-    if (cartItems.length === 0) {
-      router.push("/products");
-    }
-  }, [cartItems, router]);
 
   useEffect(() => {
     setStates(
@@ -72,6 +66,7 @@ const Checkout = () => {
         : []
     );
     setValue("state", selectedOption.value);
+    setValue("district", ""); // Reset district when state changes
   };
 
   const handleDistrictChange = (selectedOption) => {
@@ -101,6 +96,7 @@ const Checkout = () => {
     };
 
     if (userChoice) {
+      clearCart();
       router.push({
         pathname: "/paymentsuccessful",
         query: { ...data, ...orderSummary },
@@ -109,10 +105,6 @@ const Checkout = () => {
       router.push("/paymentfailed");
     }
   };
-
-  if (cartItems.length === 0) {
-    return <p>Redirecting to your cart...</p>;
-  }
 
   const subtotal = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
@@ -129,15 +121,15 @@ const Checkout = () => {
         <title>Checkout | eCommerce</title>
         <link rel="icon" href="favicon.svg" type="image/x-icon" />
       </Head>
-      <div className="md:max-w-7xl mx-auto px-4 container mx-auto py-12 ">
+      <div className="md:max-w-7xl mx-auto px-4 container mx-auto py-12">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-extrabold text-gray-900 border-b-4 border-primary pb-2">
             Checkout
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 ">
-          <div className="space-y-6 rounded-lg ">
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-6 rounded-lg">
             <p className="text-xl font-semibold text-gray-800">Order Summary</p>
             <div className="space-y-4">
               <div className="flex justify-between">
@@ -171,7 +163,7 @@ const Checkout = () => {
             </div>
           </div>
 
-          <div className="space-y-6 p-6 ">
+          <div className="space-y-6 p-6">
             <form onSubmit={handleSubmit(onSubmit)}>
               <h3 className="text-2xl font-bold text-gray-800 mb-4">
                 Personal Details
@@ -309,11 +301,15 @@ const Checkout = () => {
                       <div>
                         <Select
                           {...field}
-                          value={selectedState}
                           options={states}
-                          placeholder="State"
-                          onChange={handleStateChange}
-                          className="w-full"
+                          onChange={(option) => {
+                            handleStateChange(option);
+                            field.onChange(option.value); // Update react-hook-form
+                          }}
+                          value={states.find(
+                            (state) => state.value === field.value
+                          )}
+                          placeholder="Select state"
                         />
                         {errors.state && (
                           <p className="text-red-500 text-sm mt-1">
@@ -331,11 +327,15 @@ const Checkout = () => {
                       <div>
                         <Select
                           {...field}
-                          value={selectedDistrict}
                           options={districts}
-                          placeholder="District"
-                          onChange={handleDistrictChange}
-                          className="w-full"
+                          onChange={(option) => {
+                            handleDistrictChange(option);
+                            field.onChange(option.value); // Update react-hook-form
+                          }}
+                          value={districts.find(
+                            (district) => district.value === field.value
+                          )}
+                          placeholder="Select district"
                         />
                         {errors.district && (
                           <p className="text-red-500 text-sm mt-1">
@@ -366,14 +366,11 @@ const Checkout = () => {
                     )}
                   />
                 </div>
-              </div>
-
-              <div className="mt-8 flex justify-end">
                 <button
                   type="submit"
-                  className="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-md"
+                  className="mt-8 px-6 py-3 bg-primary text-white font-bold rounded-md hover:bg-primary-dark transition"
                 >
-                  Place Order
+                  Complete Purchase
                 </button>
               </div>
             </form>

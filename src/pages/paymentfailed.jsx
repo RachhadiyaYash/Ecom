@@ -8,7 +8,7 @@ export default function PaymentFailed() {
       <Head>
         <title>Payment Failed | eCommerce</title>
       </Head>
-      <section className="container border md:max-w-7xl mx-auto px-4 py-24">
+      <section className="container  md:max-w-7xl mx-auto px-4 py-24">
         <div className="relative w-full h-48 md:h-64 mx-auto mb-6">
           <Image
             src="/payment failed.svg"
