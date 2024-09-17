@@ -22,7 +22,7 @@ export default function Footer() {
                 any query ?
               </p>
               <Link
-                href="/contactus"
+                href="/contact"
                 className="py-2.5 px-5 h-9 block w-fit bg-primary rounded-full
               shadow-sm text-xs text-white mx-auto transition-all duration-500 hover:bg-primary-800
               lg:mx-0"
@@ -35,17 +35,17 @@ export default function Footer() {
               <h4 className="text-lg text-gray-900 font-medium mb-7">Pages</h4>
               <ul className="text-sm  transition-all duration-500">
                 <li className="mb-6">
-                  <Link href="/" className=" hover:text-primary">
+                  <Link href="/" className="hover:text-primary">
                     Home
                   </Link>
                 </li>
                 <li className="mb-6">
-                  <Link href="aboutus" className=" hover:text-primary">
+                  <Link href="aboutus" className="hover:text-primary">
                     About us
                   </Link>
                 </li>
                 <li className="mb-6">
-                  <Link href="contact us" className=" hover:text-primary">
+                  <Link href="contactus" className="hover:text-primary">
                     Contact us
                   </Link>
                 </li>

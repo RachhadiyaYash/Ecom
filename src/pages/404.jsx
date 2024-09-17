@@ -1,9 +1,8 @@
-// pages/404.js
 import Link from "next/link";
 
 export default function Custom404() {
   return (
-    <section className="container md:max-w-7xl px-4 py-24 mx-auto border ">
+    <section className="container md:max-w-7xl px-4 py-24 mx-auto  ">
       <div className="mx-auto max-w-screen-sm text-center">
         <h1 className="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-primary-600 ">
           404
@@ -13,7 +12,7 @@ export default function Custom404() {
         </p>
         <p className="mb-4 text-lg font-light text-gray-800">
           Sorry, we can't find that page. You'll find lots to explore on the
-          home page.{" "}
+          home page.
         </p>
         <Link
           href="/"
