@@ -36,7 +36,7 @@ export default function Button({ text, width = "w-[250px]" }) {
             className="absolute"
             viewBox="0 0 16 16"
             initial={{ x: 0 }}
-            animate={{ x: isHovered ? "120%" : "100%" }} // Move arrow when hovered
+            animate={{ x: isHovered ? "120%" : "100%" }}
             transition={{ duration: 0.3 }}
           >
             <path

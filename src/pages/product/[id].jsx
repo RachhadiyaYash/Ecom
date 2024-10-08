@@ -40,14 +40,14 @@ export default function ProductDetail() {
   };
 
   return (
-    <div className="container md:max-w-7xl border  mx-auto px-4 ">
+    <div className="container md:max-w-7xl border  mx-auto px-4 border-2 p-4 ">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="flex flex-col items-center lg:items-start">
-          <div className="flex justify-center items-center mb-6">
+          <div className="flex justify-center items-center ">
             <img
               src={selectedImage}
               alt={product.title}
-              className="h-80 w-full object-contain shadow-lg rounded-lg transition-transform transform hover:scale-105"
+              className="h-80 w-full object-fill aspact-square border  shadow-lg rounded-lg transition-transform transform hover:scale-105"
             />
           </div>
         </div>
@@ -80,7 +80,6 @@ export default function ProductDetail() {
             </button>
           </div>
 
-          {/* Action Buttons */}
           <div className="flex space-x-4">
             <button
               className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-colors"

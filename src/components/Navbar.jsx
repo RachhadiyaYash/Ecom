@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useCart } from "../context/CartContext";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/router"; // Import useRouter
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const { cartItems } = useCart();
